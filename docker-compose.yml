@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+    jikan:
+      build:
+        context: sauce
+        dockerfile: Dockerfile
+      depends_on:
+        - redis
+      ports:
+        - "127.0.0.1:8003:80"
+      restart: always
+
+    redis:
+      image: redis
+      restart: always
